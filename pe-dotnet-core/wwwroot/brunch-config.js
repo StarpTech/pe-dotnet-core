@@ -8,7 +8,8 @@ exports.files = {
   },
   stylesheets: {
     joinTo: {
-      "theme.css": /^app\/styles/
+      "app.css": /^app\/styles/,
+      "home.css": /^app\/pages\/home/
     }
   }
 };
