@@ -20,7 +20,13 @@ $ dotnet run
 npm run build
 ```
 
-## Goals
-- [ ] Basic .Net Core MVC with [View Components](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-components) to render entry pages with static content.
-- [ ] Enhance pages with dynamic components using React
-- [ ] Use [PWA](https://developers.google.com/web/progressive-web-apps/) capabilties to provide a more realiable and fast user experience
+## Architecture
+
+- Render entry pages with Razor Pages.
+- Provide REST API and consume it from the frontend.
+- Use Entity Framework as ORM.
+- Use React as Web-Component library to build dynamic user-interfaces.
+- Use Brunch as frontend build tool.
+- Use PWA capabilties (Service Workers, Preloading ...) to provide a more realiable and faster user experience.
+- Build Page specific Javascript bundles.
+
