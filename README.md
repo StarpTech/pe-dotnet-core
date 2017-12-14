@@ -32,4 +32,4 @@ npm run build
 
 ## Demo Project
 
-The application is small catalog about devices around the world. The locations are displayed on an OpenStreetMap App.
+The application is small catalog about devices around the world. The locations are displayed on OpenStreetMap.
