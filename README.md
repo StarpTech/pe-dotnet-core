@@ -27,6 +27,6 @@ npm run build
 - Use Entity Framework as ORM.
 - Use React as Web-Component library to build dynamic user-interfaces.
 - Use Brunch as frontend build tool.
-- Use PWA capabilties (Service Workers, Preloading ...) to provide a more realiable and faster user experience.
+- Use PWA capabilities (Service Workers, Preloading ...) to provide a more realiable and faster user experience.
 - Build Page specific Javascript bundles.
 
