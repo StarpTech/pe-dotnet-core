@@ -1,4 +1,3 @@
-const postcss = require('postcss')
 const csswring = require('csswring')
 const production = process.env.NODE_ENV === 'production'
 

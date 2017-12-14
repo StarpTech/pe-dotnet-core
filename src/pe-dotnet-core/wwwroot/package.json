@@ -34,7 +34,6 @@
     "eslint": "^4.13.1",
     "eslint-brunch": "^3.12.0",
     "eslint-plugin-react": "^7.5.1",
-    "postcss": "^6.0.14",
     "postcss-brunch": "^2.1.0",
     "prettier": "^1.9.2",
     "sass-brunch": "^2.10.4",
