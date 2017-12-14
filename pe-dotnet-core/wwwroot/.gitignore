@@ -1,0 +1,8 @@
+# NPM packages folder.
+node_modules/
+
+# Brunch output folder.
+public/
+
+# NPM lock
+package-lock.json
