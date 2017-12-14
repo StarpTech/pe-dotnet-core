@@ -3,10 +3,27 @@
 
 ## Getting Started
 
-- Checkout Repository
-- Go to [wwwroot](https://github.com/StarpTech/pe-dotnet-core/tree/master/src/pe-dotnet-core/wwwroot) execute `npm i`
-- Execute `npm start`
-- Start .NET Core Application
+1. Checkout Repository
+2. Go to [wwwroot](https://github.com/StarpTech/pe-dotnet-core/tree/master/src/pe-dotnet-core/wwwroot)
+```
+npm i
+npm start
+```
+3. Start .NET Core Application
+```
+$ dotnet run
+
+Hosting environment: Development
+Content root path: E:\Repositorys\pe-dotnet-core\src\pe-dotnet-core
+Now listening on: http://localhost:4255
+Application started. Press Ctrl+C to shut down.
+```
+
+## Production Build
+
+```
+npm run build
+```
 
 ## Goals
 - [ ] Basic .Net Core MVC with [View Components](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-components) to render entry pages with static content.
