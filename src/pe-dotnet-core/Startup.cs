@@ -22,6 +22,7 @@ namespace pre_dotnet_core
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddResponseCompression();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +38,7 @@ namespace pre_dotnet_core
                 app.UseExceptionHandler("/Error");
             }
 
+            app.UseResponseCompression();
             app.UseStaticFiles(new StaticFileOptions()
             {
                 ServeUnknownFileTypes = true

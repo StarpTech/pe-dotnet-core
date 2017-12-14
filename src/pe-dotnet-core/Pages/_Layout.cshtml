@@ -8,14 +8,14 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Bulma Version 0.6.0 -->
     <link rel="stylesheet" href="~/public/app.css">
-    <script src="~/public/vendor.js"></script>
+    <link rel="stylesheet" href="~/public/vendor.css">
 </head>
 <body>
 
     <nav class="navbar is-dark">
         <div class="navbar-brand">
             <a class="navbar-item" href="https://bulma.io">
-                <img src="~/public/img/bulma-logo-white.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+                <img src="~/public/images/bulma-logo-white.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
             </a>
             <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
                 <span></span>
@@ -36,25 +36,6 @@
                     <div class="navbar-dropdown is-boxed">
                         <a class="navbar-item" href="/documentation/overview/start/">
                             Overview
-                        </a>
-                        <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
-                            Modifiers
-                        </a>
-                        <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-                            Columns
-                        </a>
-                        <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-                            Layout
-                        </a>
-                        <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-                            Form
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-                            Elements
-                        </a>
-                        <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-                            Components
                         </a>
                     </div>
                 </div>
@@ -87,8 +68,17 @@
         </div>
     </nav>
 
-    @RenderBody()
+    <section class="section">
+        <div class="container">
+        <h1 class="title">Dashboard</h1>
+        <h2 class="subtitle">
+            Overview about all connected devices around the world
+        </h2>
+        @RenderBody()
+        </div>
+    </section>
 
+    <script src="~/public/vendor.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

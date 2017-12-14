@@ -10,12 +10,17 @@
   },
   "dependencies": {
     "bulma": "^0.6.1",
-    "chart.js": "^2.7.1",
+    "chartist": "^0.11.0",
     "es6-promise": "^4.1.1",
     "font-awesome": "^4.7.0",
     "isomorphic-fetch": "^2.2.1",
+    "leaflet": "^1.2.0",
+    "leaflet.markercluster": "^1.2.0",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-chartist": "^0.13.0",
     "react-dom": "^16.2.0",
+    "react-leaflet": "^1.7.8",
     "styled-components": "^2.2.4"
   },
   "devDependencies": {
