@@ -30,3 +30,6 @@ npm run build
 - Use PWA capabilities (Service Workers, Preloading ...) to provide a more realiable and faster user experience.
 - Build Page specific Javascript bundles.
 
+## Demo Project
+
+The application is small catalog about devices around the world. The locations are displayed on an OpenStreetMap App.
