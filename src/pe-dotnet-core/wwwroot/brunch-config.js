@@ -1,3 +1,7 @@
+const postcss = require('postcss')
+const csswring = require('csswring')
+const production = process.env.NODE_ENV === 'production'
+
 // See http://brunch.io for documentation.
 exports.files = {
   javascripts: {
@@ -13,7 +17,16 @@ exports.files = {
   }
 };
 
+const postCssProcessors = [require('autoprefixer')(['last 2 versions'])]
+
+if(production) {
+  postCssProcessors.push(csswring())
+}
+
 exports.plugins = {
+  postcss: {
+    processors: postCssProcessors
+  },
   sass: {
     options: {
       includePaths: ['node_modules/']
@@ -25,3 +38,6 @@ exports.plugins = {
     ] // copy these files into /public
   }
 }
+
+// Turn off growl
+exports.notifications = false
