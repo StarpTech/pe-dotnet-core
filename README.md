@@ -9,14 +9,9 @@
 npm i
 npm start
 ```
-3. Start .NET Core Application
+3. Go to [root](https://github.com/StarpTech/pe-dotnet-core/tree/master/src/pe-dotnet-core) and start the .NET Core Application
 ```
 $ dotnet run
-
-Hosting environment: Development
-Content root path: E:\Repositorys\pe-dotnet-core\src\pe-dotnet-core
-Now listening on: http://localhost:4255
-Application started. Press Ctrl+C to shut down.
 ```
 
 ## Production Build
