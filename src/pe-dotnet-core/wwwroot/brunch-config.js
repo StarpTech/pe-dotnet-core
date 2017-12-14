@@ -8,8 +8,20 @@ exports.files = {
   },
   stylesheets: {
     joinTo: {
-      "app.css": /^app\/styles/,
-      "home.css": /^app\/pages\/home/
+      "app.css": /^app\/styles/
     }
   }
 };
+
+exports.plugins = {
+  sass: {
+    options: {
+      includePaths: ['node_modules/']
+    } // tell sass-brunch where to look for files to @import
+  },
+  copycat: {
+    "fonts": [
+      "node_modules/font-awesome/fonts"
+    ] // copy these files into /public
+  }
+}

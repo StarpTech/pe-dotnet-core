@@ -1,0 +1,8 @@
+@import "./variables";
+
+// CSS Framework
+@import "bulma/bulma.sass";
+
+// Fonts
+$fa-font-path: "/public/fonts";
+@import "font-awesome/scss/font-awesome.scss";
