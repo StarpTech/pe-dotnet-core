@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using pe_dotnet_core;
 
-namespace pre_dotnet_core.Pages
+namespace pe_dotnet_core.Pages
 {
-    public class IndexModel : PageModel
+    public class DeviceDetailsModel : PageModel
     {
         public void OnGet()
         {
+
         }
     }
 }

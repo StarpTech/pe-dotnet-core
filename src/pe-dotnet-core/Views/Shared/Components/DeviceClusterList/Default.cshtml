@@ -1,0 +1,21 @@
+﻿@model IEnumerable<pe_dotnet_core.DeviceCluster>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var device in Model)
+        {
+            <tr>
+                <th>@device.Name</th>
+                <td>@device.Description</td>
+                <td>@device.Location</td>
+            </tr>
+        }
+    </tbody>
+</table>

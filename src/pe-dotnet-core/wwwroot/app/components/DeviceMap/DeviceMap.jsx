@@ -1,6 +1,6 @@
 import React from "react";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import MarkerClusterGroup from './../MarkerCluster/MarkerCluster';
+import MarkerClusterGroup from './../MarkerCluster';
 
 export default class DeviceMap extends React.Component {
   constructor() {

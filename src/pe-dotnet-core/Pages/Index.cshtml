@@ -9,5 +9,37 @@
     <script>require('pages/home');</script>
 }
 <div id="map"></div>
-<div id="app"></div>
-<div id="stats"></div>
+
+ <section class="section">
+    <div class="container">
+      <h1 class="title">Availability</h1>
+        <h2 class="subtitle">
+            Availability statistics
+        </h2>
+      <div id="stats"></div>
+    </div>
+  </section>
+
+ <section class="section">
+    <div class="container">
+      <h1 class="title">Devices</h1>
+        <h2 class="subtitle">
+            Overview about all devices
+        </h2>
+      <div id="list">
+          @await Component.InvokeAsync("DeviceList")
+      </div>
+    </div>
+  </section>
+
+<section class="section">
+    <div class="container">
+        <h1 class="title">Cluster</h1>
+        <h2 class="subtitle">
+            Overview about cluster
+        </h2>
+        <div id="list">
+            @await Component.InvokeAsync("DeviceClusterList")
+        </div>
+    </div>
+</section>
