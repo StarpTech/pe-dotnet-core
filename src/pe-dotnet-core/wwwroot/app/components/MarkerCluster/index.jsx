@@ -1,26 +1,26 @@
-import React, { Children, cloneElement } from 'react';
-import PropTypes from 'prop-types';
+import React, { Children, cloneElement } from "react";
+import PropTypes from "prop-types";
 
-import { LayerGroup } from 'react-leaflet';
-import L from 'leaflet';
+import { LayerGroup } from "react-leaflet";
+import L from "leaflet";
 
-import 'leaflet.markercluster'
+import "leaflet.markercluster";
 
 // TEMP: remove deprecation warning at v1.2.0
 function havingDeprecatedProps(markers) {
-  return markers.findIndex((marker) => marker.lat || marker.lng) !== -1;
+  return markers.findIndex(marker => marker.lat || marker.lng) !== -1;
 }
 
 // NOTE: Helpers
 function isArraysEqual(firstArray, secondArray) {
-  return (JSON.stringify(firstArray) === JSON.stringify(secondArray));
+  return JSON.stringify(firstArray) === JSON.stringify(secondArray);
 }
 
 function removeMarkersWithSameCoordinates(markers) {
   // init filtered markers list with first marker from list
   const filteredMarkers = [markers[0]];
 
-  markers.forEach((marker) => {
+  markers.forEach(marker => {
     if (!JSON.stringify(filteredMarkers).includes(JSON.stringify(marker))) {
       filteredMarkers.push(marker);
     }
@@ -44,8 +44,10 @@ export default class MarkerClusterGroup extends LayerGroup {
       this.addLayersWithMarkersFromProps(markers);
 
       if (havingDeprecatedProps(markers)) {
-        console.warn('[react-leaflet-markercluster] Warning: marker "lat: xx", "lng: xx" properties are deprecated'
-          + ' and will be removed in v1.2.0. Please use "position: [lat, lng]" instead https://goo.gl/s7a6Cj');
+        console.warn(
+          '[react-leaflet-markercluster] Warning: marker "lat: xx", "lng: xx" properties are deprecated' +
+            ' and will be removed in v1.2.0. Please use "position: [lat, lng]" instead https://goo.gl/s7a6Cj'
+        );
       }
     }
 
@@ -60,26 +62,31 @@ export default class MarkerClusterGroup extends LayerGroup {
       // Remove layers with markers from markerClusterGroup
       this.leafletElement.clearLayers();
 
-      if (nextProps.markers.length) this.addLayersWithMarkersFromProps(nextProps.markers);
+      if (nextProps.markers.length)
+        this.addLayersWithMarkersFromProps(nextProps.markers);
     }
   }
 
   initMapClasses() {
     const { wrapperOptions } = this.props;
     if (wrapperOptions) {
-      console.warn('[react-leaflet-markercluster] Warning: "wrapperOptions" property is deprecated'
-        + ' and will be removed in v1.2.0. Please see: https://goo.gl/s7a6Cj');
+      console.warn(
+        '[react-leaflet-markercluster] Warning: "wrapperOptions" property is deprecated' +
+          " and will be removed in v1.2.0. Please see: https://goo.gl/s7a6Cj"
+      );
 
       const mapClassName = this.context.map._container.className;
-      const isStyledClassAppliyed = mapClassName.indexOf('marker-cluster-styled') !== -1;
-      const isAnimatedClassAppliyed = mapClassName.indexOf('marker-cluster-animated') !== -1;
+      const isStyledClassAppliyed =
+        mapClassName.indexOf("marker-cluster-styled") !== -1;
+      const isAnimatedClassAppliyed =
+        mapClassName.indexOf("marker-cluster-animated") !== -1;
 
       if (wrapperOptions.enableDefaultStyle && !isStyledClassAppliyed) {
-        this.context.map._container.className += ' marker-cluster-styled';
+        this.context.map._container.className += " marker-cluster-styled";
       }
 
       if (!wrapperOptions.disableDefaultAnimation && !isAnimatedClassAppliyed) {
-        this.context.map._container.className += ' marker-cluster-animated';
+        this.context.map._container.className += " marker-cluster-animated";
       }
     }
   }
@@ -92,20 +99,21 @@ export default class MarkerClusterGroup extends LayerGroup {
       : {};
 
     // TEMP: remove from v1.2.0 because of deprecated wrapperOptions prop
-    const filteredMarkers = wrapperOptions && wrapperOptions.removeDuplicates
-      ? removeMarkersWithSameCoordinates(markers)
-      : markers;
+    const filteredMarkers =
+      wrapperOptions && wrapperOptions.removeDuplicates
+        ? removeMarkersWithSameCoordinates(markers)
+        : markers;
 
     const leafletMarkers = [];
 
-    filteredMarkers.forEach((marker) => {
+    filteredMarkers.forEach(marker => {
       const currentMarkerOptions = marker.options
         ? Object.assign({}, marker.options)
         : null;
 
       const leafletMarker = L.marker(
         marker.position || [marker.lat, marker.lng],
-        currentMarkerOptions || markersOptions,
+        currentMarkerOptions || markersOptions
       );
 
       if (marker.popup) leafletMarker.bindPopup(marker.popup);
@@ -122,19 +130,19 @@ export default class MarkerClusterGroup extends LayerGroup {
 
   initEventListeners(markerClusterGroup) {
     if (this.props.onMarkerClick) {
-      markerClusterGroup.on('click', (marker) => {
+      markerClusterGroup.on("click", marker => {
         this.props.onMarkerClick(marker.layer);
       });
     }
 
     if (this.props.onClusterClick) {
-      markerClusterGroup.on('clusterclick', (cluster) => {
+      markerClusterGroup.on("clusterclick", cluster => {
         this.props.onClusterClick(cluster.layer);
       });
     }
 
     if (this.props.onPopupClose) {
-      markerClusterGroup.on('popupclose', (map) => {
+      markerClusterGroup.on("popupclose", map => {
         this.props.onPopupClose(map.popup);
       });
     }
@@ -145,14 +153,14 @@ export default class MarkerClusterGroup extends LayerGroup {
 
     // Map through all react-leaflet Markers and clone them with ref prop
     // ref prop required to get leafletElement of Marker
-    return Children.map(this.props.children, (reactLeafletMarker, index) => (
+    return Children.map(this.props.children, (reactLeafletMarker, index) =>
       cloneElement(reactLeafletMarker, {
-        ref: (marker) => {
+        ref: marker => {
           if (marker) {
             leafletMarkers.push(marker.leafletElement);
 
             if (
-              (index === (this.props.children.length - 1)) ||
+              index === this.props.children.length - 1 ||
               // addClusteredMarkersToMap when there is only one marker
               !Array.isArray(this.props.children)
             ) {
@@ -163,9 +171,11 @@ export default class MarkerClusterGroup extends LayerGroup {
             }
           }
         },
-        key: `react-leaflet-marker-${JSON.stringify(reactLeafletMarker.props.position)}-${index}`,
+        key: `react-leaflet-marker-${JSON.stringify(
+          reactLeafletMarker.props.position
+        )}-${index}`
       })
-    ));
+    );
   }
 
   getLeafletElement() {
@@ -173,13 +183,11 @@ export default class MarkerClusterGroup extends LayerGroup {
   }
 
   render() {
-    return this.props.children
-      ? (
-        <section className="marker-cluster-group">
-          {this.addLayersWithReactLeafletMarkers()}
-        </section>
-      )
-      : null;
+    return this.props.children ? (
+      <section className="marker-cluster-group">
+        {this.addLayersWithReactLeafletMarkers()}
+      </section>
+    ) : null;
   }
 }
 
@@ -198,9 +206,9 @@ MarkerClusterGroup.propTypes = {
   // Events
   onMarkerClick: PropTypes.func,
   onClusterClick: PropTypes.func,
-  onPopupClose: PropTypes.func,
+  onPopupClose: PropTypes.func
 };
 
 MarkerClusterGroup.defaultProps = {
-  markers: [],
+  markers: []
 };
